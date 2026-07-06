@@ -34,10 +34,14 @@ export default function Projects() {
             viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -6 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="group relative border border-slate-700/50 bg-slate-800/40 backdrop-blur-md hover:bg-slate-800/70 hover:border-blue-500/50 rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] transition-colors duration-300 flex flex-col md:flex-row gap-8 items-start"
+            /* Added relative layer & silver gradient border transition */
+            className="group relative bg-slate-900/80 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-[0_4px_30px_rgba(0,0,0,0.4)] flex flex-col md:flex-row gap-8 items-start overflow-hidden border border-slate-800/80 hover:border-slate-400/40 transition-colors duration-500"
           >
+            {/* Embedded High-End Silver Border Accent Line */}
+            <div className="absolute inset-0 border border-transparent group-hover:border-gradient-to-r group-hover:from-slate-500/20 group-hover:via-white/20 group-hover:to-slate-500/20 rounded-2xl pointer-events-none transition-all duration-500" />
+
             {/* Left Column: Info & Details */}
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 space-y-4 relative z-10">
               <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">
                 {project.title}
               </h3>
@@ -55,7 +59,7 @@ export default function Projects() {
               </div>
 
               {/* Engineering Challenges */}
-              <div className="pt-4 border-t border-slate-700/60">
+              <div className="pt-4 border-t border-slate-800">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                   Key Engineering Challenges Solved:
                 </h4>
@@ -68,8 +72,8 @@ export default function Projects() {
             </div>
 
             {/* Right Column: Key System Metric & Actions */}
-            <div className="w-full md:w-52 flex flex-col justify-between h-full md:self-stretch border-t md:border-t-0 md:border-l border-slate-700/60 pt-6 md:pt-0 md:pl-8 space-y-6">
-              <div className="bg-slate-900/60 rounded-xl p-4 text-center border border-slate-700/50">
+            <div className="w-full md:w-52 flex flex-col justify-between h-full md:self-stretch border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0 md:pl-8 space-y-6 relative z-10">
+              <div className="bg-slate-950/60 rounded-xl p-4 text-center border border-slate-800">
                 <span className="block text-2xl font-black text-blue-400 tracking-tight">
                   {project.stats.primary}
                 </span>
