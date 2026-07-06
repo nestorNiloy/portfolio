@@ -10,15 +10,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#E2E8F0] bg-[#F6F8FB]/75 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Logo / Branding */}
         <div className="flex items-center gap-2">
-          <span className="text-lg font-bold tracking-tight text-[#0F172A]">
-            Niloy<span className="text-[#2563EB]">Barua</span>
+          <span className="text-lg font-bold tracking-tight text-white">
+            Niloy<span className="text-blue-400">Barua</span>
           </span>
-          <span className="rounded-md bg-[#E2E8F0] px-2 py-0.5 text-xs font-medium text-[#475569]">
+          <span className="rounded-md bg-slate-800 border border-slate-700/60 px-2 py-0.5 text-xs font-semibold text-slate-300">
             Software Engineer
           </span>
         </div>
@@ -29,7 +29,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-[#475569] transition-colors hover:text-[#0F172A]"
+              className="text-sm font-medium text-slate-400 transition-colors hover:text-white"
             >
               {link.label}
             </a>
