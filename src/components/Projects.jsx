@@ -1,12 +1,19 @@
 // src/components/Projects.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import Button from './Button';
 import { projectsData } from '../data/projects';
 
 export default function Projects() {
   return (
     <section id="projects" className="py-20 border-t border-slate-800">
-      <div className="flex flex-col items-center mb-16 text-center">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center mb-16 text-center"
+      >
         <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full">
           Production Systems
         </span>
@@ -16,13 +23,18 @@ export default function Projects() {
         <p className="mt-3 max-w-2xl text-base text-slate-400">
           Skip the basic tutorials. These are production-style software solutions engineered with structural patterns, real data pipelines, and architectural depth.
         </p>
-      </div>
+      </motion.div>
 
       <div className="space-y-12 max-w-5xl mx-auto">
         {projectsData.map((project, index) => (
-          <div 
+          <motion.div 
             key={index} 
-            className="group relative border border-slate-700/50 bg-slate-800/40 backdrop-blur-md hover:bg-slate-800/70 hover:border-blue-500/50 rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] transition-all duration-300 flex flex-col md:flex-row gap-8 items-start"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="group relative border border-slate-700/50 bg-slate-800/40 backdrop-blur-md hover:bg-slate-800/70 hover:border-blue-500/50 rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] transition-colors duration-300 flex flex-col md:flex-row gap-8 items-start"
           >
             {/* Left Column: Info & Details */}
             <div className="flex-1 space-y-4">
@@ -75,7 +87,7 @@ export default function Projects() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
