@@ -1,35 +1,9 @@
 // src/components/Projects.jsx
 import React from 'react';
 import Button from './Button';
+import { projectsData } from '../data/projects';
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Smart Public Transport Intelligence Platform",
-      description: "An asynchronous data analytics engine processing real-time public transit schedules, network latencies, and route optimization metrics.",
-      metrics: ["Async Architecture", "11+ REST APIs", "Live DB Integration", "Railway Deployed"],
-      stats: { primary: "11,000+", label: "Schedules Processed" },
-      challenges: ["Handling high-concurrency API data streams", "Implementing thread-safe database connection pooling"],
-      github: "https://github.com/nestorNiloy/transit-intel-platform",
-    },
-    {
-      title: "AI Job Discovery & Automation Platform",
-      description: "An asynchronous backend workflow engine using an enterprise repository pattern to scrape job boards, trigger synthetic AI tailoring, and manage status state machines.",
-      metrics: ["FastAPI Async", "SQLAlchemy 2.0", "Repository Pattern", "Adzuna API"],
-      stats: { primary: "35+", label: "API Endpoints" },
-      challenges: ["Building deterministic state machine transitions", "Decoupling service layers from active database routers"],
-      github: "https://github.com/nestorNiloy?tab=repositories",
-    },
-    {
-      title: "Enterprise ATM Transaction Dashboard",
-      description: "A full-stack financial analytics interface tracking metrics, volume optimization, and failure vectors across retail transactional banking systems.",
-      metrics: ["Spring Boot", "REST Architecture", "Data Engineering", "React Frontend"],
-      stats: { primary: "2,790", label: "Simulated ATMs" },
-      challenges: ["Aggregating high-volume transactional logs cleanly", "Designing responsive light-mode metrics graphs"],
-      github: "https://github.com/nestorNiloy/atm-transaction-dashboard",
-    }
-  ];
-
   return (
     <section id="projects" className="py-20 border-t border-slate-800">
       <div className="flex flex-col items-center mb-16 text-center">
@@ -45,7 +19,7 @@ export default function Projects() {
       </div>
 
       <div className="space-y-12 max-w-5xl mx-auto">
-        {projects.map((project, index) => (
+        {projectsData.map((project, index) => (
           <div 
             key={index} 
             className="group relative border border-slate-700/50 bg-slate-800/40 backdrop-blur-md hover:bg-slate-800/70 hover:border-blue-500/50 rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] transition-all duration-300 flex flex-col md:flex-row gap-8 items-start"
@@ -59,7 +33,7 @@ export default function Projects() {
                 {project.description}
               </p>
               
-              {/* Shiny Tech Badges */}
+              {/* Tech Badges */}
               <div className="flex flex-wrap gap-2 pt-2">
                 {project.metrics.map((m, i) => (
                   <span key={i} className="text-xs font-semibold text-blue-300 bg-blue-950/60 border border-blue-800/50 px-2.5 py-1 rounded-md">
@@ -96,7 +70,6 @@ export default function Projects() {
                 <Button variant="primary" onClick={() => window.open(project.github, '_blank')}>
                   Source Code
                 </Button>
-                {/* Fixed Architecture Button to smoothly slide down to the Framework section */}
                 <Button variant="secondary" onClick={() => document.getElementById('architecture')?.scrollIntoView({ behavior: 'smooth' })}>
                   System Architecture
                 </Button>
